@@ -1,0 +1,84 @@
+
+#app{
+    @include font_color("font_color-main");
+    @include background_color("background_color-main")
+}
+.layout{
+    // display: flex;
+}
+aside{
+    position:fixed;
+    top: 0;
+    // left: 0;
+    bottom: 0;
+    z-index: 1999;
+    min-height: 100vh;
+    box-sizing: border-box;
+    box-shadow: $shadow1;
+}
+.layout-view{
+    box-sizing: border-box;
+    position:fixed;
+    top: 0;
+    left: 0;
+    padding-left: 220px;
+    transition: padding 0.3s ease-in-out;
+    width:100vw;
+    min-height: 100vh; 
+    header{
+        position: relative;
+        z-index: 1888;
+        height: 90px;
+        box-shadow: $shadow1;
+        @include background_color("background_color-header");
+    }
+    main{
+        background-color: #F0F2F5;
+        z-index: 1666;
+        height: calc(100vh - 90px);
+        overflow-y:scroll ;
+        box-sizing: border-box;
+        padding: 12px 18px;
+    }
+}
+
+.control-menu{
+    height: 100%;
+    // width: 200px;
+}
+
+@media screen and (max-width:1000px) {
+    .layout-view{
+        padding-left: 0 !important;
+    }
+    .aside{
+        &-maskLayer{
+            cursor: pointer;
+            z-index: 1988;
+            position: fixed;
+            top: 0;
+            left: 0; 
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.2);        
+        }
+        &-unMaskLayer{
+            display: none;
+        }
+    }
+    aside{
+        z-index: 1999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
+    .el-menu--collapse{
+        overflow: hidden;
+        width: 0px;
+    }
+}
+
+

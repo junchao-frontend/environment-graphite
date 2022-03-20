@@ -1,0 +1,94 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+    font-family: --font-family-sans-serif;
+
+}
+
+li{
+    list-style: none;
+}
+
+div[class^= "card-"]{
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: $shadow1;
+}
+
+.card-search{
+    padding: 24px;
+    padding-bottom: 0;
+    .el-tabs--top {
+        width: 400px;
+        .el-tabs__header {
+          margin: 0;
+        }
+        .el-tabs__active-bar {
+          background-color: $primary;
+        }
+        .el-tabs__item {
+          font-size: 1rem;
+        }
+        .el-tabs__item.is-active {
+          color: $primary;
+        }
+        .el-tabs__item:hover {
+          color: $primary;
+        }
+      }
+}
+.card-table{
+    padding: 20px 18px;
+}
+.card-search ~ .card-table{
+    margin-top: 12px;
+}
+
+.el-button {
+    padding: 10px 16px;
+    border-radius: 2px !important; 
+    overflow: hidden;
+    font-size: 12px !important;
+    &:active{
+        box-shadow: none !important;
+    }
+    & [class*=el-icon-]+span{
+        margin-left: 4px;
+    }
+}
+.el-button--primary{
+    background-color: $primary;
+    border-color: $primary !important;
+    &:hover{
+        background-color: rgb(113, 141, 255)  !important;
+        border-color: rgb(113, 141, 255) !important;
+    }
+    &:active{
+        background-color: #3961ff !important;
+        border-color: #3961ff !important;
+    }
+    &:focus{
+        background-color: #6a88ff;
+        border-color: #6a88ff !important;
+    }
+}
+.el-input__inner{
+    border-radius: 2px;
+}
+
+// 修改弹窗footer提交按钮
+.dialog-footer{
+    .el-button{
+        padding: 10px 24px !important;
+        & ~ .el-button{
+            margin-left: 30px !important;
+        }
+    }
+}
+
+// message消息自定义类
+.mess-info{
+    background-color: #fff;
+    box-shadow: $shadow1;
+}

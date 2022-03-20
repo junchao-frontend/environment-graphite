@@ -1,0 +1,107 @@
+@import "../_root.scss";
+$themes: (
+    // 默认颜色
+    normal: (
+        //字体
+        font_color-main: #2c3e50,
+        font_color-menu: #fff,
+        font_color-menu-active: rgb(77, 112, 255),
+        font_color-card: #2c3e50,
+        
+        //背景
+        background_color-main: #fff,
+        background_color-menu: rgb(25, 26, 35),
+        background_color-active: darken(rgb(25, 26, 35),5%),
+        background_color-header: #eee,
+        background_color-card: #fff,
+    
+        //边框
+        border_color1: #31343a,
+
+        // 按钮
+        // button类型1
+        btn-hover-color-primary: #6db6d3,
+        // btn-checked-color: #1263e6
+        btn-text-color-primary: #fff,
+        btn-border-primary: 1px soild #1263e6,
+        btn-background-color-primary: #6e12e6,
+        
+        // button类型2
+        btn-hover-color-danger: #6d96d3,
+        // btn-checked-color: #1263e6
+        btn-text-color-danger: #fff,
+        btn-border-danger: 1px soild #000000,
+        btn-background-color-danger: #e61212,
+        // btn-org-color: $danger,
+        // btn-hover-color: #ec7d52,
+        // // btn-checked-color: #1263e6
+        // btn-border: 1px soild #000000,
+        // btn-background-color: #e61247
+    ),
+
+    light: (
+        //字体
+        font_color-main: #2c3e50,
+        font_color-menu: #2c3e50,
+        font_color-menu-active: #4c60a3,
+        font_color-card: #2c3e50,
+        
+        //背景
+        background_color-main: #eff1f7,
+        background_color-menu: #fff,
+        background_color-active: lighten(#4c60a3,50%),
+        background_color-header: #fff,
+        background_color-card: #fff,
+        
+        //边框
+        border_color1: #3d414a,
+
+        // button类型1
+        btn-hover-color-primary: #f6f20d,
+        btn-text-color-primary: #000,
+        // btn-checked-color: #1263e6
+        btn-border-primary: 1px soild #0a0a0a,
+        btn-background-color-primary: #9164f8,
+        
+        // button类型2
+        btn-org-color-danger: $success,
+        btn-hover-color-danger: #6dd3a0,
+        // btn-checked-color: #1263e6
+        btn-border-danger: 1px soild #000000,
+        btn-background-color-danger: #e69512
+    ),
+    
+    dark: (
+        //字体
+        font_color-main: rgb(206, 206, 206),
+        font_color-menu: rgb(206, 206, 206),
+        font_color-menu-active: #4c60a3,
+        font_color-card: rgb(206, 206, 206),
+        
+        //背景
+        background_color-main: #2c2c43,
+        background_color-menu: #1f1f2e,
+        background_color-active: lighten(#1f1f2e,10%),
+        background_color-header: #2e2e44,
+        background_color-card: #2c2c43,
+    
+        //边框
+        border_color1: #3d414a,
+
+        // 按钮
+        // button类型1
+        btn-hover-color-primary: #6dc7d3,
+        btn-text-color-primary: #000,
+        // btn-checked-color: #1263e6
+        btn-border-primary: 1px soild #0e0d0d,
+        btn-background-color-primary: #f5a952,
+        // // button类型2
+        btn-org-color-danger: $danger,
+        btn-hover-color-danger: #d1d36d,
+        // btn-checked-color: #1263e6
+        btn-border-danger: 1px soild #000000,
+        btn-background-color-danger: #f56060,
+    )
+
+
+);

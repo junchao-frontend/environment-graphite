@@ -1,0 +1,408 @@
+{
+  "id": "2720194",
+  "name": "石墨工厂",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "507669",
+      "name": "群蜂安全中心",
+      "font_class": "qunfenganquanzhongxin",
+      "unicode": "e753",
+      "unicode_decimal": 59219
+    },
+    {
+      "icon_id": "1599882",
+      "name": "网商银行无线端_安全",
+      "font_class": "anquan1",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "5244124",
+      "name": "环保设备专业运营",
+      "font_class": "huanbaoshebeizhuanyeyunying",
+      "unicode": "e742",
+      "unicode_decimal": 59202
+    },
+    {
+      "icon_id": "5961299",
+      "name": "安全",
+      "font_class": "anquan2",
+      "unicode": "ec4d",
+      "unicode_decimal": 60493
+    },
+    {
+      "icon_id": "10594131",
+      "name": "环保节能",
+      "font_class": "huanbaojieneng",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "11834349",
+      "name": "环保",
+      "font_class": "huanbao",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "14511857",
+      "name": "安全",
+      "font_class": "anquan3",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "15596883",
+      "name": "生产工艺",
+      "font_class": "shengchangongyi",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "16890331",
+      "name": "环保基础信息",
+      "font_class": "huanbaojichuxinxi",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "18738841",
+      "name": "03动态安全监管-安全承诺",
+      "font_class": "03dongtaianquanjianguan-anquanchengnuo",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "18915273",
+      "name": "工艺",
+      "font_class": "gongyi1",
+      "unicode": "e7cc",
+      "unicode_decimal": 59340
+    },
+    {
+      "icon_id": "24073481",
+      "name": "环保管理",
+      "font_class": "huanbaoguanli",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "24611581",
+      "name": "制工艺单",
+      "font_class": "zhigongyidan",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "16613662",
+      "name": "3D图",
+      "font_class": "3Dtu-01",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "20103576",
+      "name": "地图展示",
+      "font_class": "dituzhanshi",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "21895477",
+      "name": "icon_3d",
+      "font_class": "icon_3d",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "23645074",
+      "name": "3D",
+      "font_class": "a-3D",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "201576",
+      "name": "3.1产品参数",
+      "font_class": "31chanpincanshu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1058904",
+      "name": "报表分析",
+      "font_class": "baobiaofenxi",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "1129627",
+      "name": "业务报表",
+      "font_class": "yewubaobiao",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "1279452",
+      "name": "数据",
+      "font_class": "shuju",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "1977217",
+      "name": "搜索-搜索",
+      "font_class": "sousuo-sousuo",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "2859362",
+      "name": "报表",
+      "font_class": "baobiao",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "4645632",
+      "name": "数据3",
+      "font_class": "shuju1",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "6844403",
+      "name": "报表 ",
+      "font_class": "baobiao1",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "7712214",
+      "name": "权限",
+      "font_class": "quanxian",
+      "unicode": "e725",
+      "unicode_decimal": 59173
+    },
+    {
+      "icon_id": "8084588",
+      "name": " 重置",
+      "font_class": "zhongzhi",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "8094229",
+      "name": "重置",
+      "font_class": "zhongzhi1",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "8487162",
+      "name": "平台参数",
+      "font_class": "pingtaicanshu",
+      "unicode": "e7d7",
+      "unicode_decimal": 59351
+    },
+    {
+      "icon_id": "8765259",
+      "name": "重置-2",
+      "font_class": "zhongzhi-",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "9626863",
+      "name": "个人中心",
+      "font_class": "gerenzhongxin",
+      "unicode": "e86d",
+      "unicode_decimal": 59501
+    },
+    {
+      "icon_id": "10545486",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "10565968",
+      "name": "搜索",
+      "font_class": "sousuo1",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11267161",
+      "name": "dashboard",
+      "font_class": "dashboard",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "11855546",
+      "name": "参数",
+      "font_class": "canshu",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "12435114",
+      "name": "个人中心",
+      "font_class": "gerenzhongxin1",
+      "unicode": "e72a",
+      "unicode_decimal": 59178
+    },
+    {
+      "icon_id": "15392655",
+      "name": "数据2",
+      "font_class": "shuju2",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "16728179",
+      "name": "权限管理",
+      "font_class": "quanxianguanli",
+      "unicode": "e713",
+      "unicode_decimal": 59155
+    },
+    {
+      "icon_id": "17523068",
+      "name": "配置-运维配置",
+      "font_class": "peizhi-yunweipeizhi",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "17523086",
+      "name": "配置-系统配置",
+      "font_class": "peizhi-xitongpeizhi",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "21591044",
+      "name": "监控平台",
+      "font_class": "jiankongpingtai",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "24860696",
+      "name": "刷新-重置-06",
+      "font_class": "shuaxin-zhongzhi-06",
+      "unicode": "e85e",
+      "unicode_decimal": 59486
+    },
+    {
+      "icon_id": "26324381",
+      "name": "主从",
+      "font_class": "zhucong",
+      "unicode": "e761",
+      "unicode_decimal": 59233
+    },
+    {
+      "icon_id": "26324383",
+      "name": "领域",
+      "font_class": "lingyu",
+      "unicode": "e762",
+      "unicode_decimal": 59234
+    },
+    {
+      "icon_id": "26324384",
+      "name": "管理员",
+      "font_class": "guanliyuan",
+      "unicode": "e763",
+      "unicode_decimal": 59235
+    },
+    {
+      "icon_id": "26324397",
+      "name": "页面",
+      "font_class": "yemian",
+      "unicode": "e764",
+      "unicode_decimal": 59236
+    },
+    {
+      "icon_id": "26324398",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e765",
+      "unicode_decimal": 59237
+    },
+    {
+      "icon_id": "26324407",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e766",
+      "unicode_decimal": 59238
+    },
+    {
+      "icon_id": "1079362",
+      "name": "安全",
+      "font_class": "anquan",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "1727278",
+      "name": "09安全、保障",
+      "font_class": "anquanbaozhang",
+      "unicode": "e88c",
+      "unicode_decimal": 59532
+    },
+    {
+      "icon_id": "3020021",
+      "name": "一级-安全监管",
+      "font_class": "yiji-anquanjianguan",
+      "unicode": "eaa7",
+      "unicode_decimal": 60071
+    },
+    {
+      "icon_id": "3640180",
+      "name": "环保信息",
+      "font_class": "huanbaoxinxi",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "4080579",
+      "name": "智慧环保",
+      "font_class": "zhihuihuanbao",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "4442125",
+      "name": "工艺",
+      "font_class": "gongyi",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "8837139",
+      "name": "环保气象",
+      "font_class": "zaixianquhao",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "11882846",
+      "name": "bg-security",
+      "font_class": "bg-security",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "22390457",
+      "name": "工艺路线",
+      "font_class": "gongyiluxian",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    }
+  ]
+}

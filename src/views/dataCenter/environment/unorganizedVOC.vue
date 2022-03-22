@@ -30,7 +30,7 @@
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
-            value-format="yyyy-MM-dd hh-mm-ss">
+            value-format="yyyy-MM-dd hh:mm:ss">
           </el-date-picker>
         </el-form-item>
         <el-form-item>
@@ -43,18 +43,18 @@
       :header-cell-style="getRowClass"
       :data="tableData"
       style="width: 100%">
-      <div>
+      <!-- <div> -->
         <el-table-column
           fixed
           align="center"
           label="时间"
           width="">
           <template slot-scope="scope">
-            {{scope.row.createTime}}
+            {{scope.row.dataTime}}
           </template>
         </el-table-column>
-      </div>
-      <div>
+      <!-- </div>
+      <div> -->
         <el-table-column
           fixed
           align="center"
@@ -62,38 +62,21 @@
           width="">
           {{control.deviceName}}
         </el-table-column>
-      </div>
-      <div v-if="control.timeSize =='实时' || control.timeSize =='DataRealTimeHisColl'">
-        <el-table-column
-          width=""
-          align="center"
-          v-for="(item,index) in tableData[0].data"
-          :key="index"
-          :label="item.name">
-          <template slot="header" slot-scope="">
-            <div class="center">{{item.name}}</div>
-            <div class="center">({{item.unit}})</div>
-          </template>
-          <template slot-scope="scope">
-            {{scope.row.data[index].value}}
-          </template>
-        </el-table-column>
-      </div>
-      <div v-else>
-        <el-table-column
-          width=""
-          align="center"
-          v-for="(item,index) in tableData[0].data[control.data]"
-          :key="index">
-          <template slot="header" slot-scope="">
-            <div class="center">{{item.Name}}</div>
-            <div class="center">({{item.Unit}})</div>
-          </template>
-          <template slot-scope="scope">
-            {{scope.row.data[control.data][index].Value}}
-          </template>
-        </el-table-column>
-      </div>
+      <!-- </div> -->
+      <el-table-column
+        min-width="120"
+        align="center"
+        v-for="item in columns"
+        :key="item.key">
+        <template slot="header" slot-scope="">
+          <div class="center">{{item.key}}</div>
+          <div class="center">({{item.unit}})</div>
+        </template>
+        <template slot-scope="{row}">
+         <span v-if="control.timeSize =='实时' || control.timeSize =='DataRealTimeHisColl'" >{{row.data[item.key]||'-'}}</span>
+         <span v-else>{{row.data[control.data]?row.data[control.data][item.key]:'-'}}</span>
+        </template>
+      </el-table-column>
     </el-table>
     <div
       v-if="tableData.length !== 0"
@@ -146,7 +129,8 @@ export default {
         {
           data: []
         }
-      ]
+      ],
+      columns: []
     }
   },
   computed: {},
@@ -157,6 +141,9 @@ export default {
   methods: {
     onSubmit () {
       this.control.timeSize = this.$refs.selectime.selectedLabel
+      this.deviceList.forEach(each => {
+        if (each.name === this.$refs.selectdevice.selectedLabel) { this.columns = each.sensors[0].detectionValue }
+      })
       this.getData()
     },
     getControl () {
@@ -170,10 +157,10 @@ export default {
         _id: '61ee4e0bc38b3e3bb214f84b'
       }
       getUnOrgVOCByType(params).then(res => {
-        console.log('resresType', res)
         if (res.data.code === 200) {
           this.deviceList = res.data.data
           this.formInline.deviceName = res.data.data[0].code
+          this.columns = res.data.data[0].sensors[0].detectionValue
           this.getData()
         }
       }).catch(err => {
@@ -195,10 +182,9 @@ export default {
         endTime: that.formInline.time[1]
       }
       getUnOrgVOCData(params).then(res => {
-        console.log('resresData', res)
         if (res.data.code === 200) {
           this.getControl()
-          that.tableData = res.data.data.dataSet
+          that.tableData = res.data.data.dataSet || []
           this.total = res.data.data.total
         }
       }).catch(err => {

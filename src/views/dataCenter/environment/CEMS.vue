@@ -22,6 +22,13 @@
             <el-option label="最大值" value="最大值"></el-option>
           </el-select>
         </el-form-item>
+        <!-- <el-form-item v-show="formInline.timeSize != '实时' && formInline.timeSize != 'DataRealTimeHisColl'" le>
+          <el-radio-group v-model="formInline.data">
+            <el-radio label="平均值"></el-radio>
+            <el-radio label="最小值"></el-radio>
+            <el-radio label="最大值"></el-radio>
+          </el-radio-group>
+        </el-form-item> -->
         <el-form-item>
           <el-button icon="el-icon-search" type="primary" @click="onSubmit">查询</el-button>
         </el-form-item>
@@ -32,58 +39,36 @@
       :header-cell-style="getRowClass"
       :data="tableData"
       style="width: 100%">
-      <div>
-        <el-table-column
-          fixed
-          align="center"
-          label="时间"
-          width="100px">
-          <template slot-scope="scope">
-            {{scope.row.createTime}}
-          </template>
-        </el-table-column>
-      </div>
-      <div>
-        <el-table-column
-          fixed
-          align="center"
-          label="设备名"
-          min-width="120">
-          {{control.deviceName}}
-        </el-table-column>
-      </div>
-      <div v-if="control.timeSize =='实时' || control.timeSize =='DataRealTimeHisColl'">
-        <el-table-column
-          min-width="120"
-          align="center"
-          v-for="(item,index) in tableData[0].data"
-          :key="index"
-          :label="item.name">
-          <template slot="header" slot-scope="">
-            <div class="center">{{item.name}}</div>
-            <div class="center">({{item.unit}})</div>
-          </template>
-          <template slot-scope="scope">
-            {{scope.row.data[index].value}}
-          </template>
-        </el-table-column>
-      </div>
-      <div v-else>
-        <el-table-column
-          min-width="120"
-          align="center"
-          v-for="(item,index) in tableData[0].data[control.data]"
-          :key="index"
-          :label="item.name">
-          <template slot="header" slot-scope="">
-            <div class="center">{{item.Name}}</div>
-            <div class="center">({{item.Unit}})</div>
-          </template>index
-          <template slot-scope="scope">
-            {{scope.row.data[control.data][index].Value}}
-          </template>
-        </el-table-column>
-      </div>
+      <el-table-column
+        fixed
+        align="center"
+        label="时间"
+        width="100px">
+        <template slot-scope="scope">
+          {{scope.row.dataTime}}
+        </template>
+      </el-table-column>
+      <el-table-column
+        fixed
+        align="center"
+        label="设备名"
+        min-width="120">
+        {{control.deviceName}}
+      </el-table-column>
+      <el-table-column
+        min-width="120"
+        align="center"
+        v-for="item in columns"
+        :key="item.key">
+        <template slot="header" slot-scope="">
+          <div class="center">{{item.key}}</div>
+          <div class="center">({{item.unit}})</div>
+        </template>
+        <template slot-scope="{row}">
+         <span v-if="control.timeSize =='实时' || control.timeSize =='DataRealTimeHisColl'" >{{row.data[item.key]||'-'}}</span>
+         <span v-else>{{row.data[control.data]?row.data[control.data][item.key]:'-'}}</span>
+        </template>
+      </el-table-column>
     </el-table>
     <div
       v-if="tableData.length !== 0"
@@ -130,7 +115,8 @@ export default {
         {
           data: []
         }
-      ]
+      ],
+      columns: []
     }
   },
   computed: {},
@@ -141,6 +127,9 @@ export default {
   methods: {
     onSubmit () {
       this.control.timeSize = this.$refs.selectime.selectedLabel
+      this.deviceList.forEach(each => {
+        if (each.name === this.$refs.selectdevice.selectedLabel) { this.columns = each.sensors[0].detectionValue }
+      })
       this.getData()
     },
     getControl () {
@@ -158,6 +147,7 @@ export default {
         if (res.data.code === 200) {
           this.deviceList = res.data.data
           this.formInline.deviceName = res.data.data[0].code
+          this.columns = res.data.data[0].sensors[0].detectionValue
           this.getData()
         }
       }).catch(err => {
@@ -174,7 +164,7 @@ export default {
         deviceCode: that.formInline.deviceName
       }
       getCEMSDeviceData(params).then(res => {
-        // console.log(that.$ref
+        console.log('datas', res)
         if (res.data.code === 200) {
           this.getControl()
           if (res.data.data.dataSet) { that.tableData = res.data.data.dataSet } else { that.tableData = [{ data: [] }] }
@@ -204,6 +194,10 @@ export default {
 }
 .block /deep/ .el-pager .active{
   background-color: $primary !important;
+}
+/deep/.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+  background-color: $primary;
+  border-color: $primary;
 }
 // .center{text-align: center;}
 </style>

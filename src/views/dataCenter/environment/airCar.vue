@@ -4,6 +4,7 @@
       <el-form size="small" :inline="true" label-width="80px" :model="formInline" class="demo-form-inline">
         <el-form-item label="设备">
           <el-select ref="selectdevice" v-model="formInline.deviceName" placeholder="选择设备">
+            <el-option label="东跨吸料天车" value="东跨吸料天车"></el-option>
             <el-option label="西跨吸料天车" value="西跨吸料天车"></el-option>
           </el-select>
         </el-form-item>
@@ -50,14 +51,14 @@
           fixed
           align="center"
           label="设备名">
-          西跨吸料天车
+          {{formInline.deviceName}}
         </el-table-column>
       </div>
       <div v-if="control.timeSize =='Now'">
         <el-table-column
           align="center"
-          v-for="(item,index) in tableData"
-          :key="index"
+          v-for="item in tableData"
+          :key="item.key"
           :label="item.key">
           <template slot="header" slot-scope="">
             <div class="center">风机运行信号</div>
@@ -71,7 +72,7 @@
         <el-table-column
           align="center"
           v-for="(item,index) in tableData[0].data"
-          :key="index"
+          :key="item.key"
           :label="item.key">
           <template slot="header" slot-scope="">
             <div class="center">{{item.key}}</div>
@@ -120,7 +121,7 @@ export default {
       },
       formInline: {
         time: ['', ''],
-        deviceName: '西跨吸料天车',
+        deviceName: '东跨吸料天车',
         timeSize: 'Min',
         data: '平均值'
       },
@@ -184,8 +185,14 @@ export default {
       if (that.formInline.time === null) {
         that.formInline.time = ['', '']
       }
+      var boxid = ''
+      if (this.formInline.deviceName === '东跨吸料天车') {
+        boxid = 'f73fe0d8688046e088bb073849aa0c3f'
+      } else {
+        boxid = 'b46a0faf11cc4000a4c290eba5cc949a'
+      }
       const params = {
-        boxId: 'b46a0faf11cc4000a4c290eba5cc949a',
+        boxId: boxid,
         dataTime: that.formInline.timeSize,
         pageSize: that.pageSize,
         currPage: that.currPage,
@@ -193,6 +200,7 @@ export default {
         endTime: that.formInline.time[1]
       }
       getAirCarData(params).then(res => {
+        console.log(res)
         if (res.data.code === 200) {
         //   this.getControl()
           console.log(res)

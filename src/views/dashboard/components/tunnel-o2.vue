@@ -1,6 +1,6 @@
 <template>
-  <div class="tunnel-o2">
-      <div id="tunnel-o2"></div>
+  <div class="tunnel-smoke">
+      <div id="tunnel-smoke"></div>
   </div>
 </template>
 
@@ -12,7 +12,8 @@ export default {
     return {
       xData: [],
       yData: [],
-      unit: ''
+      unit: '',
+      cordonData: []
     }
   },
   computed: {},
@@ -24,7 +25,7 @@ export default {
     initData () {
       getMainCems().then(res => {
         if (res.data.code === 200) {
-          const data = res.data.data['隧道窑/浸渍CEMS-氧气含量']
+          const data = res.data.data['隧道窑/浸渍CEMS-烟尘Zs']
           const xData = data.time
           const middleData = []
           xData.forEach(item => {
@@ -32,6 +33,11 @@ export default {
           })
           this.xData = middleData
           this.yData = data.data
+          const cordonData = []
+          for (let i = 0; i < data.data.length; i++) {
+            cordonData.push('10')
+          }
+          this.cordonData = cordonData
           this.unit = data.unit
           this.initEcharts()
         }
@@ -41,7 +47,7 @@ export default {
         })
     },
     initEcharts () {
-      const myChart = this.$echarts.init(document.getElementById('tunnel-o2'))
+      const myChart = this.$echarts.init(document.getElementById('tunnel-smoke'))
       const option = {
         title: {
           // text: 'Temperature Change in the Coming Week'
@@ -54,7 +60,15 @@ export default {
           bottom: '5%'
         },
         legend: {
-          top: '5%'
+          top: '5%',
+          itemWidth: 20,
+          itemHeight: 10,
+          selected: {
+            // 选中'系列1'
+            '焙烧CEMS-烟尘Zs': true,
+            // 不选中'系列2'
+            警戒线: false
+          }
         },
         xAxis: {
           type: 'category',
@@ -66,9 +80,41 @@ export default {
         },
         series: [
           {
-            name: '隧道窑/浸渍CEMS-氧气含量',
+            name: '隧道窑/浸渍CEMS-烟尘Zs',
             type: 'line',
-            data: this.yData
+            data: this.yData,
+            showSymbol: false,
+            symbol: 'circle',
+            symbolSize: 6,
+            zlevel: 3,
+            // markPoint: {
+            //   data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+            // },
+            markLine: {
+              symbol: 'none',
+              data: [
+                { type: 'average', name: 'Avg' }
+              ]
+            }
+          },
+          {
+            name: '警戒线',
+            type: 'line',
+            data: this.cordonData,
+            showSymbol: false,
+            symbol: 'circle',
+            symbolSize: 6,
+            zlevel: 3,
+            itemStyle: {
+              color: '#ff8029'
+              // borderColor: "#a3c8d8",
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: '#ff8029'
+              }
+            }
           }
         ]
       }
@@ -82,11 +128,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tunnel-o2 {
+.tunnel-smoke {
   width: 100%;
   height: 100%;
 }
-#tunnel-o2 {
+#tunnel-smoke {
   width: 100%;
   height: 400px;
 }

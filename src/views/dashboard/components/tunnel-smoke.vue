@@ -12,7 +12,8 @@ export default {
     return {
       xData: [],
       yData: [],
-      unit: ''
+      unit: '',
+      cordonData: []
     }
   },
   computed: {},
@@ -32,6 +33,11 @@ export default {
           })
           this.xData = middleData
           this.yData = data.data
+          const cordonData = []
+          for (let i = 0; i < data.data.length; i++) {
+            cordonData.push('10')
+          }
+          this.cordonData = cordonData
           this.unit = data.unit
           this.initEcharts()
         }
@@ -54,7 +60,15 @@ export default {
           bottom: '5%'
         },
         legend: {
-          top: '5%'
+          top: '5%',
+          itemWidth: 20,
+          itemHeight: 10,
+          selected: {
+            // 选中'系列1'
+            '焙烧CEMS-烟尘Zs': true,
+            // 不选中'系列2'
+            警戒线: false
+          }
         },
         xAxis: {
           type: 'category',
@@ -68,7 +82,39 @@ export default {
           {
             name: '隧道窑/浸渍CEMS-烟尘Zs',
             type: 'line',
-            data: this.yData
+            data: this.yData,
+            showSymbol: false,
+            symbol: 'circle',
+            symbolSize: 6,
+            zlevel: 3,
+            // markPoint: {
+            //   data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+            // },
+            markLine: {
+              symbol: 'none',
+              data: [
+                { type: 'average', name: 'Avg' }
+              ]
+            }
+          },
+          {
+            name: '警戒线',
+            type: 'line',
+            data: this.cordonData,
+            showSymbol: false,
+            symbol: 'circle',
+            symbolSize: 6,
+            zlevel: 3,
+            itemStyle: {
+              color: '#ff8029'
+              // borderColor: "#a3c8d8",
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: '#ff8029'
+              }
+            }
           }
         ]
       }
